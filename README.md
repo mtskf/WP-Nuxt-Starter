@@ -6,7 +6,7 @@ For an overview of how things work in `Nuxt.js` please refer to the [Nuxt.js doc
 
 ## How to start
 ```
-git clone git@github.com:mtskf/WP-Nuxt-Starter.git && cd wp-nuxt-starter && yarn && yarn dev
+git clone git@github.com:mtskf/WP-Nuxt-Starter.git && cd WP-Nuxt-Starter && yarn && yarn dev
 ```
 
 
