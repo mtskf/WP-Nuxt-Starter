@@ -1,10 +1,8 @@
-<template>
-  <div>
-    <app-header/>
-    <main>
-      <nuxt/>
-    </main>
-  </div>
+<template lang="pug">
+  div
+    app-header
+      main
+        nuxt
 </template>
 
 <script>
@@ -14,7 +12,7 @@
   }
 </script>
 
-<style>
+<style lang="scss">
   body {
     font-family: 'Source Sans Pro', sans-serif;
     -webkit-font-smoothing: antialiased;
