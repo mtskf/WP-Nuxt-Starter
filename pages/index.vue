@@ -20,7 +20,9 @@
     asyncData ({ params, error }) {
       return axios.get(API_URI)
         .then(res => { return { posts: res.data } })
-        .catch(e => error({ statusCode: 500, message: 'Internal Server Error' }))
+        .catch(e => {
+          error({ statusCode: 500, message: 'Internal Server Error' })
+        })
     },
     head () {
       return {

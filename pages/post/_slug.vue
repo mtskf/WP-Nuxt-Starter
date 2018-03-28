@@ -19,7 +19,9 @@
           if (res.data.length) return { post: res.data[0] }
           else error({ statusCode: 404, message: 'Page Not Found' })
         })
-        .catch(e => error({ statusCode: 500, message: 'Internal Server Error' }))
+        .catch(e => {
+          error({ statusCode: 500, message: 'Internal Server Error' })
+        })
     },
     head () {
       return {
