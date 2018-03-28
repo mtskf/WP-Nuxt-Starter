@@ -12,13 +12,13 @@ module.exports = {
   },
   loading: { color: '#3B8070' },
   build: {
+    extractCSS: true,
     postcss: [
       require('autoprefixer')({
         browsers: ['IE 11', 'last 2 versions' ],
         grid: true
       })
     ],
-    extractCSS: true,
     extend (config, ctx) {
       if (ctx.dev && ctx.isClient) {
         config.module.rules.push({
