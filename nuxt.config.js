@@ -18,6 +18,7 @@ module.exports = {
         grid: true
       })
     ],
+    extractCSS: true,
     extend (config, ctx) {
       if (ctx.dev && ctx.isClient) {
         config.module.rules.push({
