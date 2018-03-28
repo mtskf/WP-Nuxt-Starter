@@ -6,7 +6,7 @@
 </template>
 
 <script>
-  import axios from '../../plugins/axios'
+  import axios from '@/plugins/axios'
   const API_BASE = 'https://tip.handbuiltclients.com/wp-json/wp/v2/posts?slug='
 
   export default {
