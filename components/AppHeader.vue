@@ -11,7 +11,7 @@
   }
 </script>
 
-<style scoped lang="scss">>
+<style scoped lang="scss">
   header {
     padding: 24px 32px;
     margin-bottom: 32px;
