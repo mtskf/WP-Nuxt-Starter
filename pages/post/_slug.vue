@@ -12,24 +12,25 @@
   export default {
     name: 'PostPage',
     data: () => ({
-      metaInfo: {
-        title: '',
-        desc: ''
-      }
     }),
-    async asyncData ({ params }) {
-      const { data } = await axios.get(API_BASE + params.slug)
-      return { post: data[0] }
+    asyncData ({ params, error }) {
+      return axios.get(API_BASE + params.slug)
+        .then(res => {
+          if (res.data.length) return { post: res.data[0] }
+          else error({ statusCode: 404, message: 'Page Not Found' })
+        })
+        .catch(e => error({ statusCode: 500, message: 'Internal Server Error' }))
     },
     head () {
       return {
-        title: this.metaInfo.title,
+        title: `${this.post.title.rendered} - WP-Nuxt-Starter`,
         meta: [
-          { property: 'og:title', content: this.metaInfo.title },
+          { property: 'og:title', content: `${this.post.title.rendered} - WP-Nuxt-Starter` },
           { hid: 'description', name: 'description', content: '......' }
         ]
       }
-    }
+    },
+    scrollToTop: true
   }
 </script>
 

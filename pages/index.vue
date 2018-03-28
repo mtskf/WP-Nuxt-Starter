@@ -1,12 +1,11 @@
 <template lang="pug">
   section(v-if='posts')
-    router-link.post-link(
+    nuxt-link.post-link(
       v-for="(post, key) in posts",
       :key="key",
       :to="`/post/${post.slug}`")
       h1 {{ post.title.rendered }}
-  h2(v-else)
-    | Loading... {{ currentDate }}
+  h2(v-else) Loading...
 </template>
 
 <script>
@@ -16,11 +15,23 @@
   export default {
     name: 'HomePage',
     data: () => ({
+      title: 'Home - WP-Nuxt-Starter'
     }),
-    async asyncData () {
-      const { data } = await axios.get(API_URI)
-      return { posts: data }
-    }
+    asyncData ({ params, error }) {
+      return axios.get(API_URI)
+        .then(res => { return { posts: res.data } })
+        .catch(e => error({ statusCode: 500, message: 'Internal Server Error' }))
+    },
+    head () {
+      return {
+        title: this.title,
+        meta: [
+          { property: 'og:title', content: this.title },
+          { hid: 'description', name: 'description', content: '......' }
+        ]
+      }
+    },
+    scrollToTop: true
   }
 </script>
 

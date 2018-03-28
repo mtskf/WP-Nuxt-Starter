@@ -2,7 +2,7 @@
   header
     h1 WP-Nuxt Starter blog
     nav
-      router-link.link(exact='', to='/') Home
+      nuxt-link.link(exact='', to='/') Home
 </template>
 
 <script>
