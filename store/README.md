@@ -8,3 +8,19 @@ More information about the usage of this directory in the documentation:
 https://nuxtjs.org/guide/vuex-store
 
 **This directory is not required, you can delete it if you don't want to use it.**
+
+
+
+## Hamburger menu state example
+
+### mutation:
+```
+<div class="navbar-burger" data-target="navMenu" @click="$store.commit('toggleMenu')" :class="{'is-active': $store.state.isMenuActive}">
+```
+
+### to add a component...
+```
+fetch ({store}) {
+  store.commit('resetMenu')
+}
+```
