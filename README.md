@@ -2,7 +2,9 @@
 
 Blog starter template with WP Rest-API and Nuxt.js
 
-For an overview of how things work in `Nuxt.js` please refer to the [Nuxt.js docs](https://nuxtjs.org/guide)
+## Dependencies Docs
+[Nuxt.js docs](https://nuxtjs.org/guide)
+[Nuxt Axios Module](https://axios.nuxtjs.org/)
 
 ## How to start
 ```

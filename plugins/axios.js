@@ -1,12 +1,18 @@
-import * as axios from 'axios'
 import { cacheAdapterEnhancer } from 'axios-extensions'
 
-const options = {}
-if (process.server) {
-  // options.baseURL = `http://${process.env.HOST || 'localhost'}:${process.env.PORT || 3000}`
-  options.baseURL = '/'
-  options.headers = { 'Cache-Control': 'no-cache' }
-  options.adapter = cacheAdapterEnhancer(axios.defaults.adapter, true)
-}
+export default function ({ $axios, redirect }) {
+  // enable cache
+  const defaults = $axios.defaults
+  defaults.adapter = cacheAdapterEnhancer(defaults.adapter, true)
 
-export default axios.create(options)
+  // server console message
+  $axios.onRequest(config => {
+    console.log('Making request to ' + config.url)
+  })
+
+  // error handling
+  $axios.onError(error => {
+    const code = parseInt(error.response && error.response.status)
+    if (code === 400) redirect(400, '/400')
+  })
+}
