@@ -32,14 +32,14 @@ module.exports = {
   },
   modules: [
     '@nuxtjs/axios',
-    // load external scss resources to be used in vue components
-    ['nuxt-sass-resources-loader', '@/assets/scss/_variables.scss']
+    ['nuxt-sass-resources-loader', '@/assets/scss/_variables.scss'], // referenceable scss resoruces
+    // ['@nuxtjs/google-analytics', { id: 'UA-12301-2' }]     // Google Analytics Config
   ],
   plugins: [
     '@/plugins/axios'
   ],
-  // load external scss file
-  css: ['@/assets/scss/style.scss'],
+  // serverMiddleware: [ 'redirect-ssl' ],
+  css: ['@/assets/scss/style.scss'],      // load external scss file
   axios: {
     retry: { retries: 3 },
     https: true

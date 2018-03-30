@@ -3,8 +3,10 @@
 Blog starter template with WP Rest-API and Nuxt.js
 
 ## Dependencies Docs
-[Nuxt.js docs](https://nuxtjs.org/guide)
-[Nuxt Axios Module](https://axios.nuxtjs.org/)
+- [Nuxt.js docs](https://nuxtjs.org/guide)
+- [Nuxt Axios Module](https://axios.nuxtjs.org/)
+- [Vue Analytics](https://matteogabriele.gitbooks.io/vue-analytics/)
+
 
 ## How to start
 ```
