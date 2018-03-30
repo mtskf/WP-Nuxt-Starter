@@ -10,7 +10,7 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-  loading: { color: '#3B8070' },
+  loading: { color: '#009EFA', height: '4px' },
   build: {
     extractCSS: true,
     postcss: [
@@ -29,12 +29,19 @@ module.exports = {
         })
       }
     },
-    vender: ['axios']
   },
   modules: [
-    // load external scss resources to be used in vue components
-    ['nuxt-sass-resources-loader', '@/assets/scss/_variables.scss']
+    '@nuxtjs/axios',
+    ['nuxt-sass-resources-loader', '@/assets/scss/_variables.scss'], // referenceable scss resoruces
+    // ['@nuxtjs/google-analytics', { id: 'UA-12301-2' }]     // Google Analytics Config
   ],
-  // load external scss file
-  css: ['@/assets/scss/style.scss']
+  plugins: [
+    '@/plugins/axios'
+  ],
+  // serverMiddleware: [ 'redirect-ssl' ],
+  css: ['@/assets/scss/style.scss'],      // load external scss file
+  axios: {
+    retry: { retries: 3 },
+    https: true
+  }
 }
