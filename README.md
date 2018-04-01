@@ -13,7 +13,7 @@ Blog starter template with WP Rest-API and Nuxt.js
 ```
 export default {
   components: {
-    'el-select': _ => import('element-ui/lib/select')
+    MyComponent': _ => import('@/components/mycomponent')
   }
 }
 ```
