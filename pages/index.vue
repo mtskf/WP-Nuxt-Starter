@@ -15,7 +15,8 @@
   export default {
     name: 'HomePage',
     data: () => ({
-      title: 'Home - WP-Nuxt-Starter'
+      title: `Home - ${process.env.title}`,
+      description: 'Blog starter template with WP Rest-API and Nuxt.js'
     }),
     async asyncData ({ $axios, params, error }) {
       const res = await $axios.$get(API_URI)
@@ -33,7 +34,19 @@
         title: this.title,
         meta: [
           { property: 'og:title', content: this.title },
-          { hid: 'description', name: 'description', content: '......' }
+          { hid: 'description', name: 'description', content: this.description },
+
+          // Twitter Card
+          { name: 'twitter:card', content: 'summary' },
+          { name: 'twitter:title', content: this.title },
+          { name: 'twitter:description', content: this.description },
+          { name: 'twitter:image', content: `${process.env.baseUrl}/asset/....jpg` },
+
+          // Open Graph
+          { property: 'og:title', content: this.title },
+          { property: 'og:description', content: this.description },
+          { property: 'og:url', content: process.env.baseUrl + this.$route.path },
+          { property: 'og:image', content: `${process.env.baseUrl}/asset/....jpg` }
         ]
       }
     },

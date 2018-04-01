@@ -27,12 +27,33 @@
     head () {
       if (this.post) {
         return {
-          title: `${this.post.title.rendered} - WP-Nuxt-Starter`,
+          title: this.title,
           meta: [
-            { property: 'og:title', content: `${this.post.title.rendered} - WP-Nuxt-Starter` },
-            { hid: 'description', name: 'description', content: '......' }
+            { property: 'og:title', content: this.title },
+            { hid: 'description', name: 'description', content: this.description },
+
+            // Twitter Card
+            { name: 'twitter:card', content: 'summary' },
+            { name: 'twitter:title', content: this.title },
+            { name: 'twitter:description', content: this.description },
+            { name: 'twitter:image', content: `${process.env.baseUrl}/asset/....jpg` },
+
+            // Open Graph
+            { property: 'og:title', content: this.title },
+            { property: 'og:description', content: this.description },
+            { property: 'og:url', content: process.env.baseUrl + this.$route.path },
+            { property: 'og:image', content: `${process.env.baseUrl}/asset/....jpg` }
           ]
         }
+      }
+    },
+    computed: {
+      title () { return `${this.post.title.rendered} - ${process.env.title}` },
+      description () {
+        let desc = this.post.acf.article_content
+        desc = desc.replace(/(<([^>]+)>)/ig, '') // strip tags
+        if (desc.length > 86) desc = desc.substring(0, 87) + '...' // truncate
+        return desc
       }
     },
     scrollToTop: true

@@ -1,13 +1,26 @@
 module.exports = {
+  env: {
+    baseUrl: process.env.BASE_URL || 'http://localhost:3000',
+    title: 'wp-nuxt-starter'
+  },
   head: {
     title: 'wp-nuxt-starter',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Blog starter template with WP Rest-API and Nuxt.js' }
+      { hid: 'description', name: 'description', content: 'Blog starter template with WP Rest-API and Nuxt.js' },
+
+      // Twitter Card common meta
+      { name: 'twitter:site:id', content: '@gurigurico' },
+
+      // Open Graph common meta
+      { property: 'og:og:site_name', content: 'WP-Nuxt-Starter' },
+      { property: 'og:type', content: 'website' },
+      // { property: 'fb:app_id', content: '...' },     // App-ID
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      // { rel: 'canonical', href: 'https://'}
     ]
   },
   loading: { color: '#009EFA', height: '4px' },
@@ -36,6 +49,7 @@ module.exports = {
     // ['@nuxtjs/google-analytics', { id: 'UA-12301-2' }]     // Google Analytics Config
   ],
   plugins: [
+    '@/plugins/filters.js',
     '@/plugins/axios'
   ],
   // serverMiddleware: [ 'redirect-ssl' ],
