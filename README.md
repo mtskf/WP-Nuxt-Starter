@@ -18,17 +18,51 @@ export default {
 }
 ```
 
-## Dependencies Docs
+## Dependencies
+
+#### Yarn
+https://yarnpkg.com/en/
+```
+$ brew install yarn
+```
+
+#### Gulp - only for icon font generation
+https://gulpjs.com/
+```
+$ yarn global add gulp
+```
+
+#### Now - Deployment
+https://zeit.co/now
+```
+$ yarn global add now
+```
+
+
 - [Nuxt.js docs](https://nuxtjs.org/guide)
 - [Nuxt Axios Module](https://axios.nuxtjs.org/)
 - [Vue Analytics](https://matteogabriele.gitbooks.io/vue-analytics/)
 
-## How to start
+
+## Startup guide
+
+#### Installation & start dev
 ```
-git clone git@github.com:mtskf/WP-Nuxt-Starter.git && cd WP-Nuxt-Starter && yarn && yarn dev
+$ git clone git@github.com:HNBCreative/acd.git && cd acd && yarn && yarn dev
 ```
 
-## Set git remote
+#### Set git remote
 ```
-git remote set-url origin https://github.com/USERNAME/REPOSITORY.git
+$ git remote set-url origin https://github.com/USERNAME/REPOSITORY.git
+```
+
+#### Generate Iconfont
+Edit Sketch file: @/assets/fonts/hcicons/hcicons.sketch
+```
+$ gulp iconfont
+```
+
+#### Build and Deployment
+```
+$ yarn build && now
 ```
