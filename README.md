@@ -13,7 +13,7 @@ Blog starter template with WP Rest-API and Nuxt.js
 ```
 export default {
   components: {
-    MyComponent': _ => import('@/components/mycomponent')
+    MyComponent: _ => import('@/components/mycomponent')
   }
 }
 ```
