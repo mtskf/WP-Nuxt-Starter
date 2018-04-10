@@ -42,6 +42,7 @@ $ yarn global add now
 - [Nuxt.js docs](https://nuxtjs.org/guide)
 - [Nuxt Axios Module](https://axios.nuxtjs.org/)
 - [Vue Analytics](https://matteogabriele.gitbooks.io/vue-analytics/)
+- [Now - Realtime Global Deployments](https://zeit.co/now)
 
 
 ## Startup guide
