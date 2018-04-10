@@ -38,7 +38,7 @@ https://zeit.co/now
 $ yarn global add now
 ```
 
-
+#### Dependencies Docs
 - [Nuxt.js docs](https://nuxtjs.org/guide)
 - [Nuxt Axios Module](https://axios.nuxtjs.org/)
 - [Vue Analytics](https://matteogabriele.gitbooks.io/vue-analytics/)
